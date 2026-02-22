@@ -1,0 +1,30 @@
+name: post-tag-release
+run-name: ${{ github.actor }} is running post release
+on:
+  push:
+    tags:
+      - '*'
+
+concurrency:
+  group: tag-group
+
+jobs:
+    build-n-test:
+        runs-on: ubuntu-latest
+        name: qa
+        steps:
+            - name: "fetch code"
+              uses: actions/checkout@v4
+            - uses: actions/setup-go@v5
+              with:
+                check-latest: true
+                cache-dependency-path: |
+                  backend/go.sum
+            - name: configure aws credentials
+              uses: aws-actions/configure-aws-credentials@v4.1.0
+              with:
+                role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
+                role-session-name: cicd-aws-session
+                aws-region: ${{ vars.AWS_REGION }}
+            - name: "Run backend test"
+              uses: ./.github/actions/test-backend
