@@ -36,5 +36,9 @@ github.com/aws/aws-sdk-go-v2/service/sts v1.41.6 h1:5fFjR/ToSOzB2OQ/XqWpZBmNvmP/
 github.com/aws/aws-sdk-go-v2/service/sts v1.41.6/go.mod h1:qgFDZQSD/Kys7nJnVqYlWKnh0SSdMjAi0uSwON4wgYQ=
 github.com/aws/smithy-go v1.24.0 h1:LpilSUItNPFr1eY85RYgTIg5eIEPtvFbskaFcmmIUnk=
 github.com/aws/smithy-go v1.24.0/go.mod h1:LEj2LM3rBRQJxPZTB4KuzZkaZYnZPnvgIhb4pu07mx0=
+github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
+github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/kohirens/stdlib v0.0.0-20251219022316-7c7cc7222efd h1:M+uSCRM4pxCaYfcJ9tpjE1tYxpgBxsbfLEg0UMd/pm4=
 github.com/kohirens/stdlib v0.0.0-20251219022316-7c7cc7222efd/go.mod h1:tyePzzvEyJdHREgJk2SUQkqbdXtoHKFD7Lyl+7r9qFQ=
+github.com/kohirens/www v0.0.0-20260209061209-0fa04ed82d6f h1:KsYy5B4OczvLT1JuN+k+LMYlxJNobt0Ggyu2e5xPHPM=
+github.com/kohirens/www v0.0.0-20260209061209-0fa04ed82d6f/go.mod h1:eX7gfOVbzHS5HKIXpRvi9fbegvfd+5IK3NDqwpH5rKc=
