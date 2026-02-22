@@ -1,11 +1,12 @@
 module github.com/kohirens/storage
 
-go 1.23.2
+go 1.24.0
 
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.32.9
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.96.0
 	github.com/kohirens/stdlib v0.0.0-20251219022316-7c7cc7222efd
+	github.com/kohirens/www v0.0.0-20260209061209-0fa04ed82d6f
 )
 
 require (
@@ -26,4 +27,5 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.35.14 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.41.6 // indirect
 	github.com/aws/smithy-go v1.24.0 // indirect
+	github.com/google/uuid v1.6.0 // indirect
 )
