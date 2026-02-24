@@ -33,5 +33,5 @@ jobs:
                 role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
                 role-session-name: cicd-aws-session
                 aws-region: ${{ vars.AWS_REGION }}
-            - name: "Run backend test"
-              uses: ./.github/actions/test-backend
+            - name: "Run test"
+              uses: ./.github/actions/go-test

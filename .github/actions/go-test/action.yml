@@ -5,4 +5,4 @@ author: Khalifah Shabazz
 runs:
   using: docker
   image: golang:1.24-alpine
-  entrypoint: scripts/test-backend.sh
+  entrypoint: scripts/go-test.sh
