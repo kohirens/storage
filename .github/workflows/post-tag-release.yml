@@ -12,6 +12,8 @@ jobs:
     build-n-test:
         runs-on: ubuntu-latest
         name: qa
+        permissions: # This is required for the action configure-aws-credentials.
+          id-token: write
         steps:
             - name: "fetch code"
               uses: actions/checkout@v4
