@@ -9,7 +9,6 @@ import (
 
 	"github.com/kohirens/stdlib/logger"
 	"github.com/kohirens/www/session"
-	"github.com/kohirens/www/storage"
 )
 
 // TestBucketStorage_List Test all the features of Save and List functionality.
@@ -138,7 +137,7 @@ func ExampleNewBucketStorage() {
 		return
 	}
 	//  to store session data.
-	store, e1 := storage.NewBucketStorage(bucket, context.Background())
+	store, e1 := NewBucketStorage(bucket, context.Background())
 	if e1 != nil {
 		mainErr = fmt.Errorf("init bucket storage: %s", e1.Error())
 		return
