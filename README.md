@@ -17,6 +17,58 @@ of drive.
 
 ```go
 
+package main
+
+import (
+	"fmt"
+	"os"
+	"path/filepath"
+
+	"github.com/kohirens/stdlib/logger"
+	"github.com/kohirens/storage"
+)
+
+var (
+	log     = &logger.Standard{}
+	mainErr error
+)
+
+func main () {
+	defer func() {
+		if mainErr != nil {
+			log.Errf("main error: %s", mainErr)
+		}
+	}()
+
+	wd, e1 := filepath.Abs("/tmp")
+	if e1 != nil {
+		panic(fmt.Errorf("invalid dir: %v", e1.Error()))
+	}
+
+	storageDir := wd + "/storage"
+	// make some directories to prevent dir exist errors.
+	_ = os.MkdirAll(storageDir, 0777)
+
+	//  to store session data.
+	store, e1 := storage.NewLocalStorage(storageDir)
+	if e1 != nil {
+		mainErr = fmt.Errorf("init local storage: %s", e1.Error())
+		return
+	}
+	if e := store.Save("test-01.txt", []byte("1234")); e != nil {
+		mainErr = e
+		return
+	}
+	data, e2 := store.Load("test-01.txt")
+	if e2 != nil {
+		mainErr = fmt.Errorf("load test data: %s", e2.Error())
+		return
+	}
+	fmt.Printf("returned local data: %s", data)
+
+	// Output:
+	// returned local data: 1234
+}
 ```
 
 

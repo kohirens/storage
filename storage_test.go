@@ -1,13 +1,10 @@
 package storage
 
 import (
-	"fmt"
 	"os"
-	"path/filepath"
 	"reflect"
 	"testing"
 
-	"github.com/kohirens/stdlib/logger"
 	"github.com/kohirens/stdlib/test"
 )
 
