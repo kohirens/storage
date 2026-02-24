@@ -10,8 +10,6 @@ concurrency:
 
 env:
   S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
-  S3_BUCKET_NAME_BI_PROD: ${{ vars.S3_BUCKET_NAME_BI_PROD }}
-  S3_BUCKET_NAME_BI_TEST: ${{ vars.S3_BUCKET_NAME_BI_TEST }}
   VERBOSITY_LEVEL: ${{ vars.VERBOSITY_LEVEL }}
 
 jobs:
