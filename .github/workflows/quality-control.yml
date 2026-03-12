@@ -6,12 +6,11 @@ on:
 
 concurrency:
   group: qa-group
-  cancel-in-progress: true
+
 
 env:
   S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
   VERBOSITY_LEVEL: ${{ vars.VERBOSITY_LEVEL }}
-
 
 jobs:
     build-n-test:

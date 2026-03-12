@@ -8,6 +8,10 @@ on:
 concurrency:
   group: tag-group
 
+env:
+  S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
+  VERBOSITY_LEVEL: ${{ vars.VERBOSITY_LEVEL }}
+
 jobs:
     build-n-test:
         runs-on: ubuntu-latest
@@ -21,7 +25,7 @@ jobs:
               with:
                 check-latest: true
                 cache-dependency-path: |
-                  backend/go.sum
+                  go.sum
             - name: configure aws credentials
               uses: aws-actions/configure-aws-credentials@v4.1.0
               with:
