@@ -8,6 +8,10 @@ It should be trivial to add support for any other kind of storage. It stores
 data it retrieves in RAM. So Load and Save need to implement methods for
 getting and putting data to and from storage respectively.
 
+## Status
+
+[![quality-control](https://github.com/kohirens/storage/actions/workflows/quality-control.yml/badge.svg)](https://github.com/kohirens/storage/actions/workflows/quality-control.yml)
+
 ## Use Local Storge
 
 It reads and stores data on a local drive. So performance is based on the type
