@@ -15,6 +15,8 @@ var ps = string(os.PathSeparator)
 // LocalStorage Save data in local files.
 type LocalStorage struct {
 	WorkDir string
+	// AllowAutoMakeSubDirs toggle automating of subdirectories.
+	AllowAutoMakeSubDirs bool
 }
 
 func NewLocalStorage(wd string) (*LocalStorage, error) {
@@ -84,6 +86,10 @@ func (s *LocalStorage) Load(filename string) ([]byte, error) {
 
 // Save Write session data to the storage medium.
 func (s *LocalStorage) Save(filename string, data []byte) error {
+	if e := s.autoMakeSubDirs(filename); e != nil {
+		return e
+	}
+
 	filePath := s.Location(filename)
 
 	if e := os.WriteFile(filePath, data, 0774); e != nil {
@@ -105,5 +111,24 @@ func (s *LocalStorage) Remove(filename string) error {
 		return fmt.Errorf(stderr.RemoveFile, e.Error())
 	}
 
+	return nil
+}
+
+// Detect if additional subdirectories need to be made.
+func (s *LocalStorage) autoMakeSubDirs(filename string) error {
+	dirPath := filepath.Dir(filename)
+	subdirs := strings.Replace(dirPath, s.WorkDir, "", 1)
+
+	Log.Infof(stdout.Subdirs, subdirs)
+
+	if subdirs != "" && !s.AllowAutoMakeSubDirs {
+		return fmt.Errorf("%v", stderr.Subdirs)
+	}
+
+	fullFilename := s.Location(subdirs)
+
+	if e := os.MkdirAll(fullFilename, fs.ModePerm); e != nil {
+		return e
+	}
 	return nil
 }

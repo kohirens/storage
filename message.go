@@ -10,9 +10,10 @@ var stderr = struct {
 	RequestListParameters,
 	ListFiles,
 	LoadKey,
+	PutObject,
 	ReadObject,
 	RemoveFile,
-	PutObject,
+	Subdirs,
 	WriteFile string
 }{
 	AwsConfig:             "failed to load AWS config: %v",
@@ -27,14 +28,17 @@ var stderr = struct {
 	PutObject:             "cannot put object: %v",
 	ReadObject:            "cannot read object: %v",
 	RemoveFile:            "cannot remove file %v",
+	Subdirs:               "auto making subdirectories is not allowed",
 	WriteFile:             "attempting to write, but cannot %v",
 }
 var stdout = struct {
 	Load,
 	LoadKey,
-	SaveKey string
+	SaveKey,
+	Subdirs string
 }{
 	Load:    "loading %v",
 	LoadKey: "loading object from key %v",
 	SaveKey: "saving object to key %v",
+	Subdirs: "need to make the following subdirectories: %v",
 }
